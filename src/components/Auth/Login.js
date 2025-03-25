@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
-    const navigate = useNavigate(); // Add navigation hook
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -28,7 +28,6 @@ const Login = () => {
             const data = await res.json();
             login(data.token);
             
-            // Navigate to dashboard after successful login
             navigate('/dashboard');
         } catch (error) {
             console.error("Login failed:", error.message);
